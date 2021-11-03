@@ -10,7 +10,7 @@ import com.najwan160.belajarretrofit.data.DataBogor
 import com.najwan160.belajarretrofit.data.DataJakarta
 import com.najwan160.belajarretrofit.data.DataSurabaya
 import com.najwan160.belajarretrofit.network.Config
-import com.najwan160.belajarretrofit.network.JadwalModel
+import com.najwan160.belajarretrofit.network.JadwalModel1
 import retrofit2.Call
 import retrofit2.Callback
 import retrofit2.Response
@@ -37,34 +37,38 @@ class MainActivity : AppCompatActivity() {
         val etCity : EditText = findViewById(R.id.etCity)
         val btnSubmit : ImageButton = findViewById(R.id.btn_submit)
 
+//        btnSubmit.setOnClickListener{
+//            if (etCity.text.toString().lowercase(Locale.getDefault()) == "jakarta"){
+//                Clear()
+//                showData(DataJakarta().long, DataJakarta().lat)
+//                Toast.makeText(this, "Jakarta", Toast.LENGTH_LONG).show()
+//            } else if (etCity.text.toString().lowercase(Locale.getDefault()) == "surabaya"){
+//                Clear()
+//                showData(DataSurabaya().long, DataSurabaya().lat)
+//                Toast.makeText(this, "Surabya", Toast.LENGTH_LONG).show()
+//            }
+//            else if (etCity.text.toString().lowercase(Locale.getDefault()) == "bogor"){
+//                Clear()
+//                showData(DataBogor().long, DataBogor().lat)
+//                Toast.makeText(this, "bogor", Toast.LENGTH_LONG).show()
+//            }else {
+//                val warning = "Masukkan dengan benar"
+//                Toast.makeText(this, warning, Toast.LENGTH_LONG).show()
+//            }
+//        }
         btnSubmit.setOnClickListener{
-            if (etCity.text.toString().lowercase(Locale.getDefault()) == "jakarta"){
-                Clear()
-                showData(DataJakarta().long, DataJakarta().lat)
-                Toast.makeText(this, "Jakarta", Toast.LENGTH_LONG).show()
-            } else if (etCity.text.toString().lowercase(Locale.getDefault()) == "surabaya"){
-                Clear()
-                showData(DataSurabaya().long, DataSurabaya().lat)
-                Toast.makeText(this, "Surabya", Toast.LENGTH_LONG).show()
-            }
-            else if (etCity.text.toString().lowercase(Locale.getDefault()) == "bogor"){
-                Clear()
-                showData(DataBogor().long, DataBogor().lat)
-                Toast.makeText(this, "bogor", Toast.LENGTH_LONG).show()
-            }else {
-                val warning = "Masukkan dengan benar"
-                Toast.makeText(this, warning, Toast.LENGTH_LONG).show()
-            }
+            Clear()
+            showData(etCity.text.toString().lowercase())
         }
     }
-    fun showData(long: String, lat: String, ev: String = "8", mo: String = "2021-10") {
+    fun showData(city: String, mo:String="2021-10") {
 
-        Config().getService().getModelWaktu(long, lat, ev, mo)
-            .enqueue(object : Callback<JadwalModel> {
+        Config().getService().getModelWaktu(city,mo)
+            .enqueue(object : Callback<JadwalModel1> {
 
                 override fun onResponse(
-                    call: Call<JadwalModel>,
-                    response: Response<JadwalModel>
+                    call: Call<JadwalModel1>,
+                    response: Response<JadwalModel1>
                 ) {
                     val panggil1 = response.body()
                     val panggil2 = panggil1?.results?.datetime
@@ -92,7 +96,7 @@ class MainActivity : AppCompatActivity() {
                         recyclerView.setHasFixedSize(true)
                     }
                 }
-                override fun onFailure(call: Call<JadwalModel>, t: Throwable) {
+                override fun onFailure(call: Call<JadwalModel1>, t: Throwable) {
                     Toast.makeText(this@MainActivity, "$t", Toast.LENGTH_SHORT).show()
                 }
             })

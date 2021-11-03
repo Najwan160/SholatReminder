@@ -40,21 +40,22 @@ class Config {
 
 }
 
-interface JadwalModelInterface{
-    @GET("month.json")
-    fun getModelWaktu(@Query("longitude")long:String,
-                      @Query("latitude")lat:String,
-                      @Query("elevation")el:String,
-                      @Query("month")mo:String
-                      ) : Call<JadwalModel>
-}
-
 //interface JadwalModelInterface{
 //    @GET("month.json")
-//    fun getModelWaktu(@Query("city")city:String
-//    ) : Call<JadwalModel>
+//    fun getModelWaktu(@Query("longitude")long:String,
+//                      @Query("latitude")lat:String,
+//                      @Query("elevation")el:String,
+//                      @Query("month")mo:String
+//                      ) : Call<JadwalModel>
 //}
-//
+
+interface JadwalModelInterface{
+    @GET("month.json")
+    fun getModelWaktu(@Query("city")city:String,
+                      @Query("month")mo:String
+    ) : Call<JadwalModel1>
+}
+
 
 
 
