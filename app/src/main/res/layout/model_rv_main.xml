@@ -1,0 +1,65 @@
+<?xml version="1.0" encoding="utf-8"?>
+<TableLayout
+    xmlns:android="http://schemas.android.com/apk/res/android"
+    android:layout_width="match_parent"
+    android:layout_height="wrap_content">
+
+    <TableRow>
+
+        <TextView
+            android:id="@+id/Tanggal"
+            android:text="Tanggal"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:layout_weight="1"
+            android:layout_marginBottom="2dp"
+            android:gravity="center"/>
+        <TextView
+            android:id="@+id/Subuh"
+            android:text="Subuh"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:layout_weight="1"
+            android:layout_marginBottom="2dp"
+            android:gravity="center
+"/>
+        <TextView
+            android:id="@+id/Dzuhur"
+            android:text="Dzuhur"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:layout_weight="1"
+            android:layout_marginBottom="2dp"
+            android:gravity="center"/>
+        <TextView
+            android:id="@+id/Ashar"
+            android:text="Ashar"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:layout_weight="1"
+            android:layout_marginBottom="2dp"
+            android:gravity="center"/>
+        <TextView
+            android:id="@+id/Maghrib"
+            android:text="Maghrib"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:layout_weight="1"
+            android:layout_marginBottom="2dp"
+            android:gravity="center"/>
+        <TextView
+            android:id="@+id/Isya"
+            android:text="Isya"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:layout_weight="1"
+            android:layout_marginBottom="2dp"
+            android:gravity="center"/>
+
+
+
+    </TableRow>
+
+</TableLayout>
+
+
